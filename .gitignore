@@ -1,0 +1,7 @@
+/target/
+.iml
+.project
+.settings/
+.checkstyle
+.classpath
+coverage-report/
