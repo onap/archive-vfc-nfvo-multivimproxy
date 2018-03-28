@@ -1,0 +1,195 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Multivimproxy API",
+    "description": "Multivimproxy API",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Multivimproxy services"
+    }
+  ],
+  "basePath": "/api/multivimproxy/v1",
+  "paths": {
+    "/v3/auth/tokens": {
+      "post": {
+        "summary": "Password authentication",
+        "description": "Password authentication",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "onap",
+            "in": "body",
+            "description": "Authentication info",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AuthInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Resource was created and is ready to use.",
+            "schema": {
+              "$ref": "#/definitions/tokens"
+            }
+          },
+          "401": {
+            "description": "User must authenticate before making a request."
+          },
+          "404": {
+            "description": "The requested resource could not be found."
+          },
+          "500": {
+            "description": "Failed to process the request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AuthInfo": {
+      "type": "object",
+      "description": "Authentication info.",
+      "required": [
+        "auth"
+      ],
+      "properties": {
+        "auth": {
+          "$ref": "#/definitions/auth"
+        }
+      }
+    },
+    "auth": {
+      "type": "object",
+      "description": "Authentication info.",
+      "required": [
+        "identity"
+      ],
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/identity"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "description": "Authentication info.",
+      "required": [
+        "methods",
+        "password"
+      ],
+      "properties": {
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "password": {
+          "$ref": "#/definitions/user"
+        }
+      }
+    },
+    "user": {
+      "type": "object",
+      "description": "Authentication info.",
+      "required": [
+        "name",
+        "domain",
+        "password"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "$ref": "#/definitions/domain"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "domain": {
+      "type": "object",
+      "description": "Authentication info.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "description": "Tokens info.",
+      "required": [
+        "token"
+      ],
+      "properties": {
+        "auth": {
+          "$ref": "#/definitions/token"
+        }
+      }
+    },
+    "token": {
+      "type": "object",
+      "description": "Tokens info.",
+      "required": [
+        "methods",
+        "user"
+      ],
+      "properties": {
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "user": {
+          "$ref": "#/definitions/users"
+        }
+      }
+    },
+    "users": {
+      "type": "object",
+      "description": "Tokens info.",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
