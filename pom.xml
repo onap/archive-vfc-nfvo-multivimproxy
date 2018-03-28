@@ -29,8 +29,12 @@
   <name>vfc-nfvo-multivimproxy</name>
   <description>vfc nfvo multivimproxy</description>
   
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <package.name>vfc-nfvo-multivimproxy-service</package.name>
+  </properties>
+  
   <build>
-    <finalName>vfc-nfvo-multivimproxy</finalName>
     <plugins>
             <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -72,5 +76,5 @@
   <modules>
         <module>service</module>
         <module>deployment</module>
-    </modules>
+  </modules>
 </project>
