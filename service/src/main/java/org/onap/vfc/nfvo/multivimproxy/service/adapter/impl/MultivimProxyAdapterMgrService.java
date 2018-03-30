@@ -83,17 +83,15 @@ public class MultivimProxyAdapterMgrService implements IMultivimProxyAdapterMgrS
      * @throws IOException
      */
     public static String readVimAdapterInfoFromJson() throws IOException {
-        InputStream ins = null;
-        BufferedInputStream bins = null;
         String fileContent = "";
 
         String fileName = SystemEnvVariablesFactory.getInstance().getAppRoot() + System.getProperty("file.separator")
                 + "etc" + System.getProperty("file.separator") + "adapterInfo" + System.getProperty("file.separator")
                 + RESMGRADAPTERINFO;
 
-        try {
-            ins = new FileInputStream(fileName);
-            bins = new BufferedInputStream(ins);
+        try (
+            InputStream ins = new FileInputStream(fileName);
+            BufferedInputStream bins = new BufferedInputStream(ins)){
 
             byte[] contentByte = new byte[ins.available()];
             int num = bins.read(contentByte);
@@ -103,14 +101,7 @@ public class MultivimProxyAdapterMgrService implements IMultivimProxyAdapterMgrS
             }
         } catch(FileNotFoundException e) {
             LOG.error(fileName + "is not found!", e);
-        } finally {
-            if(ins != null) {
-                ins.close();
-            }
-            if(bins != null) {
-                bins.close();
-            }
-        }
+        } 
 
         return fileContent;
     }
@@ -145,13 +136,13 @@ public class MultivimProxyAdapterMgrService implements IMultivimProxyAdapterMgrS
             // catch Runtime Exception
             try {
                 sendRequest(paramsMap, adapterInfo);
-            } catch(RuntimeException e) {
+            } catch(Exception e) {
                 LOG.error(e.getMessage(), e);
             }
 
         }
 
-        private void sendRequest(Map<String, String> paramsMap, JSONObject driverInfo) {
+        private void sendRequest(Map<String, String> paramsMap, JSONObject driverInfo)throws InterruptedException {
             JSONObject resultObj = adapter2MSBMgr.registerProxy(paramsMap, driverInfo);
 
             if(Integer.valueOf(resultObj.get("retCode").toString()) == HttpConstant.HTTP_CREATED) {
@@ -161,16 +152,14 @@ public class MultivimProxyAdapterMgrService implements IMultivimProxyAdapterMgrS
                         + resultObj.get("reason").toString() + " retCode:" + resultObj.get("retCode").toString());
 
                 // if registration fails,wait one minute and try again
-                try {
-                    synchronized(lockObject) {
+                synchronized(lockObject) {
+			while(Integer.valueOf(resultObj.get("retCode").toString()) != Constant.HTTP_CREATED){
                         lockObject.wait(Constant.REPEAT_REG_TIME);
+			resultObj = adapter2MSBMgr.registerProxy(this.paramsMap, this.adapterInfo);
+			}
                     }
-                } catch(InterruptedException e) {
-                    LOG.error(e.getMessage(), e);
-                }
-
-                sendRequest(this.paramsMap, this.adapterInfo);
-            }
+                LOG.info("Resmgr has now Successfully Registered to the Microservice BUS!");
+	    }
 
         }
 
