@@ -1,12 +1,14 @@
 {
-    "serviceName": "multivimproxy",
-    "version": "v1",
-    "url": "/api/multivimproxy/v1",
-    "protocol": "REST",
-    "visualRange": "1",
-    "nodes": [{
-        "ip": "127.0.0.1",
-        "port": "8486",
-        "ttl": 0
-    }]
+  "serviceName": "multivimproxy",
+  "version": "v1",
+  "url": "/api/multivimproxy/v1",
+  "protocol": "REST",
+  "visualRange": "1",
+  "nodes": [
+    {
+      "ip": "127.0.0.1",
+      "port": "8481",
+      "ttl": 0
+    }
+  ]
 }
