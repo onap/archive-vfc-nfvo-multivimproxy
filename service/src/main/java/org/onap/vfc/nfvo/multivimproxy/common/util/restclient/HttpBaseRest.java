@@ -19,6 +19,7 @@ package org.onap.vfc.nfvo.multivimproxy.common.util.restclient;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.Inet4Address;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,7 +38,7 @@ import org.slf4j.LoggerFactory;
  * <br/>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version Aug 9, 2016
  */
@@ -49,7 +50,7 @@ public abstract class HttpBaseRest implements Restful {
 
     protected HttpClient client = null;
 
-    private static final String LOCAL_HOST = "127.0.0.1";
+    private static final String LOCAL_HOST = Inet4Address.getLoopbackAddress().getHostAddress();
 
     static final String HTTP_PATCH = "PATCH";
 
@@ -65,7 +66,7 @@ public abstract class HttpBaseRest implements Restful {
      * Constructor<br/>
      * <p>
      * </p>
-     * 
+     *
      * @since
      */
     public HttpBaseRest() {
@@ -135,7 +136,7 @@ public abstract class HttpBaseRest implements Restful {
 
     /**
      * <br/>
-     * 
+     *
      * @param method
      * @param servicePath
      * @param restParametes
