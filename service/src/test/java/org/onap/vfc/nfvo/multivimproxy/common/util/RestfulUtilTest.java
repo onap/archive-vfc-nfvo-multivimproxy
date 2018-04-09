@@ -19,6 +19,8 @@ package org.onap.vfc.nfvo.multivimproxy.common.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.net.Inet4Address;
+
 import org.junit.Test;
 import org.onap.vfc.nfvo.multivimproxy.common.util.restclient.RestfulOptions;
 import org.onap.vfc.nfvo.multivimproxy.common.util.restclient.RestfulParametes;
@@ -50,6 +52,12 @@ public class RestfulUtilTest {
                 return "{\"ResponseContent\":\"123\"}";
             }
         };
+    }
+
+
+    @Test
+    public void findLocalAddress() {
+        assertEquals("127.0.0.1", Inet4Address.getLoopbackAddress().getHostAddress());
     }
 
     private void mockGetResponseContentReturnNull() {
