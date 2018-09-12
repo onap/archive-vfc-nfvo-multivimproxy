@@ -32,6 +32,7 @@ import org.slf4j.LoggerFactory;
 public class HttpsRest extends HttpBaseRest {
 
     private static final Logger LOG = LoggerFactory.getLogger(HttpsRest.class);
+    private static final String UNSUPPORTED_EXCEPTION = "UnsupportedEncodingException: ";
 
     public void initHttpsRest() {
         SslContextFactory sslContextFactory = new SslContextFactory();
@@ -187,7 +188,7 @@ public class HttpsRest extends HttpBaseRest {
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
         } catch(UnsupportedEncodingException e) {
-	    LOG.error("UnsupportedEncodingException: ",e);
+	    LOG.error(UNSUPPORTED_EXCEPTION,e);
         } catch(Exception e) {//if not specific handling, no use of InterruptedException
 	    LOG.error("InterruptedException: ",e);
         }
@@ -229,7 +230,7 @@ public class HttpsRest extends HttpBaseRest {
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
         } catch(UnsupportedEncodingException e) {
-	    LOG.error("UnsupportedEncodingException: ",e);
+	    LOG.error(UNSUPPORTED_EXCEPTION,e);
         } catch(Exception e) {
 	    LOG.error("Exception: ",e);
         }
@@ -279,7 +280,7 @@ public class HttpsRest extends HttpBaseRest {
                         "request is expierd: " + RestHttpContentExchange.toState(HttpExchange.STATUS_EXPIRED));
             }
         } catch(UnsupportedEncodingException e) {
-	    LOG.error("UnsupportedEncodingException: ",e);
+	    LOG.error(UNSUPPORTED_EXCEPTION,e);
         } catch(Exception e) {
 	    LOG.error("Exception: ",e);
         }
