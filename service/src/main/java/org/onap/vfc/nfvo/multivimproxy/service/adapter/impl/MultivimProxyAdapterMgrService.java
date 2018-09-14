@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 
-import org.onap.vfc.nfvo.multivimproxy.service.adapter.inf.IMultivimProxyAdapterMgrService;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.Constant;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.ParamConstant;
