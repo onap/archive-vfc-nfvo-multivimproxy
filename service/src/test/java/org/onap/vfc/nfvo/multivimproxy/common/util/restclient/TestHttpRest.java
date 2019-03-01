@@ -98,6 +98,12 @@ public class TestHttpRest {
      * @throws Exception
      * @since
      */
+    @Test(expected = ServiceException.class)
+    public void testInitHttpRestIsNull() throws Exception
+    {
+        HttpRest httpRest = new HttpRest();
+        httpRest.initHttpRest(null);
+    }
     @Test
     public void testInitHttpRest() throws Exception {
         final RestfulOptions options = new RestfulOptions();

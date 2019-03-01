@@ -189,7 +189,7 @@ public class RequestUtilTest {
         };
         JSONObject result = RequestUtil.getAllJsonRequestBody(context);
         JSONObject expectedResult = new JSONObject();
-        expectedResult.put("header", new HashMap<String, String>());
+       expectedResult.put("header", new HashMap<String, String>());
         assertEquals(expectedResult, result);
     }
 
