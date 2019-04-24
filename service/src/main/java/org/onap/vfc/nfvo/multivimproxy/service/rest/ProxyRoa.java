@@ -95,7 +95,8 @@ public class ProxyRoa {
         String result = rest.getResponseContent();
         if(null != result) {
             JSONObject ret = JSONObject.fromObject(result);
-            JSONArray catalog = ret.getJSONArray("catalog");
+            JSONObject token = ret.getJSONObject("token");
+            JSONArray catalog = token.getJSONArray("catalog");
 
             for(int i = 0; i < catalog.size(); i++) {
                 JSONArray endpoints = catalog.getJSONObject(i).getJSONArray("endpoints");
