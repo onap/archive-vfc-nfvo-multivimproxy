@@ -147,7 +147,7 @@ public class ProxyRoa {
 
     @GET
     @Path("{var:.*}")
-    public String porxyGet(@Context HttpServletRequest context, @Context HttpServletResponse rsp) {
+    public String proxyGet(@Context HttpServletRequest context, @Context HttpServletResponse rsp) {
 
         // transfer to MultiVim
         RestfulParametes restfulParametes = new RestfulParametes();
@@ -164,7 +164,7 @@ public class ProxyRoa {
 
     @PUT
     @Path("{var:.*}")
-    public String porxyPut(@Context HttpServletRequest context, @Context HttpServletResponse rsp) {
+    public String proxyPut(@Context HttpServletRequest context, @Context HttpServletResponse rsp) {
         JSONObject object = RequestUtil.getJsonRequestBody(context);
         if(null == object) {
             LOGGER.error("function=proxyPost; msg=PUT error, because porxyPut is null.");
@@ -188,7 +188,7 @@ public class ProxyRoa {
 
     @DELETE
     @Path("{var:.*}")
-    public String porxyDelete(@Context HttpServletRequest context, @Context HttpServletResponse rsp) {
+    public String proxyDelete(@Context HttpServletRequest context, @Context HttpServletResponse rsp) {
 
         // transfer to MultiVim
         RestfulParametes restfulParametes = new RestfulParametes();
