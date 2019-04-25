@@ -137,8 +137,9 @@ public class RestfulConfigure {
         final StringBuilder jsonstr = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))){
             final ReaderHelper rHelpper = new ReaderHelper(reader);
-            while(null != rHelpper.getLine()) {
-                jsonstr.append(rHelpper.getLine());
+            String readLine = null;
+            while(null != (readLine = rHelpper.getLine())) {
+                jsonstr.append(readLine);
             }
         } catch(final IOException e) {
             LOG.error("load file exception:" + e);
