@@ -69,6 +69,6 @@ public class Config {
     }
     
     public static String getOpenstackPrefix() {
-    	return prps.getProperty("openstack_prefix");
+    	return prps.getProperty(Constant.OPENSTACK_PREFIX);
     }
 }
