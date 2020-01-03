@@ -33,6 +33,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.multivimproxy.common.conf.Config;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.Constant;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.ParamConstant;
@@ -41,8 +43,6 @@ import org.onap.vfc.nfvo.multivimproxy.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.multivimproxy.common.util.request.RequestUtil;
 import org.onap.vfc.nfvo.multivimproxy.common.util.restclient.RestfulParametes;
 import org.onap.vfc.nfvo.multivimproxy.common.util.restclient.RestfulResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -51,7 +51,7 @@ import net.sf.json.JSONObject;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProxyRoa {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProxyRoa.class);
+    private static final Logger LOGGER = LogManager.getLogger(ProxyRoa.class);
 
     private static final String vimId = Config.getCloudRegionId() + "_" + Config.getCloudRegionId();
 

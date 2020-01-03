@@ -25,6 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.Constant;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.ParamConstant;
@@ -32,8 +34,6 @@ import org.onap.vfc.nfvo.multivimproxy.common.constant.UrlConstant;
 import org.onap.vfc.nfvo.multivimproxy.common.util.restclient.SystemEnvVariablesFactory;
 import org.onap.vfc.nfvo.multivimproxy.service.adapter.inf.IMultivimProxyAdapter2MSBManager;
 import org.onap.vfc.nfvo.multivimproxy.service.adapter.inf.IMultivimProxyAdapterMgrService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -47,7 +47,7 @@ import net.sf.json.JSONObject;
  */
 public class MultivimProxyAdapterMgrService implements IMultivimProxyAdapterMgrService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MultivimProxyAdapterMgrService.class);
+    private static final Logger LOG = LogManager.getLogger(MultivimProxyAdapterMgrService.class);
 
     public static final String RESMGRADAPTERINFO = "resmgradapterinfo.json";
 
