@@ -102,7 +102,9 @@ public class Constant {
     public static final String GLOBAL_CUSTOMER_ID = "global-customer-id";
 
     public static final String SERVICE_TYPE = "service-type";
-    
+
+    public static final String OPENSTACK_PREFIX = "openstack_prefix";
+
     public static final int HTTP_BAD_REQUEST = 400;
     
     public static final int HTTP_CREATED = 201;
