@@ -18,13 +18,13 @@ package org.onap.vfc.nfvo.multivimproxy.service.adapter.impl;
 
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.Constant;
 import org.onap.vfc.nfvo.multivimproxy.common.constant.HttpConstant;
 import org.onap.vfc.nfvo.multivimproxy.common.util.RestfulUtil;
 import org.onap.vfc.nfvo.multivimproxy.service.adapter.inf.IMultivimProxyAdapter2MSBManager;
 import org.onap.vfc.nfvo.multivimproxy.common.util.restclient.RestfulResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -38,7 +38,7 @@ import net.sf.json.JSONObject;
  */
 public class MultivimProxyAdapter2MSBManager implements IMultivimProxyAdapter2MSBManager {
 
-    private static final Logger LOG = LogManager.getLogger(MultivimProxyAdapter2MSBManager.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MultivimProxyAdapter2MSBManager.class);
 
     @Override
     public JSONObject registerProxy(Map<String, String> paramsMap, JSONObject driverInfo) {
