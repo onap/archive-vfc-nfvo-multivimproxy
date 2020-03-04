@@ -30,6 +30,7 @@ install_sf(){
 add_user(){
 
 	useradd onap
+<<<<<<< HEAD
 	yum -y install sudo
 	chmod u+x /etc/sudoers
 	sed -i '/Same thing without a password/a\onap    ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
@@ -39,6 +40,16 @@ add_user(){
 
 clean_sf_cache(){
 								
+=======
+	chown onap:onap -R /service
+	chmod g+s /service
+	setfacl -d --set u:onap:rwx /service
+
+}
+
+clean_sf_cache(){
+
+>>>>>>> Remove sudo capability for onap user for VF-C multivimproxy docker
 	yum clean all
 }
 
