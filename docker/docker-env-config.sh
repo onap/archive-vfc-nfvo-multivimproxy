@@ -17,7 +17,7 @@ install_sf(){
 	echo 'export CATALINA_OPTS="$CATALINA_OPTS -Xms64m -Xmx256m -XX:MaxPermSize=64m"' > /service/bin/setenv.sh
 
 	# Set up microservice
-	wget -q -O nfvo-multivimproxy.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.vfc.nfvo.multivimproxy&a=vfc-nfvo-multivimproxy-deployment&v=LATEST&e=zip" && \
+	#wget -q -O nfvo-multivimproxy.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.vfc.nfvo.multivimproxy&a=vfc-nfvo-multivimproxy-deployment&v=LATEST&e=zip" && \
 	     unzip -q -o -B nfvo-multivimproxy.zip && \
 	     rm -f nfvo-multivimproxy.zip
 
@@ -30,11 +30,10 @@ install_sf(){
 add_user(){
 
 	useradd onap
-	yum -y install sudo
-	chmod u+x /etc/sudoers
-	sed -i '/Same thing without a password/a\onap    ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
-	chmod u-x /etc/sudoers
 	chown onap:onap -R /service
+	chmod g+s /service
+	setfacl -d --set u:onap:rwx /service
+
 }
 
 clean_sf_cache(){
