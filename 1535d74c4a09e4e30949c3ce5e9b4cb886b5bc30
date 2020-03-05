@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f3e9011_ac6dba6d",
+        "filename": "docker/docker-env-config.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:08:37Z",
+      "side": 1,
+      "message": "btw, why do you need socat?",
+      "revId": "1535d74c4a09e4e30949c3ce5e9b4cb886b5bc30",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "629c46c1_d06d48c7",
+        "filename": "docker/docker-env-config.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:08:37Z",
+      "side": 1,
+      "message": "trailing",
+      "revId": "1535d74c4a09e4e30949c3ce5e9b4cb886b5bc30",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
