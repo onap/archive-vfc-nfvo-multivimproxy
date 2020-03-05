@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "33b6a760_b82d420a",
+        "filename": "docker/docker-env-config.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 925
+      },
+      "writtenOn": "2020-03-05T09:58:56Z",
+      "side": 1,
+      "message": "Because this is provided by componnet owner,so we couldn\u0027t give the answer, sorry for that",
+      "parentUuid": "6f3e9011_ac6dba6d",
+      "revId": "1535d74c4a09e4e30949c3ce5e9b4cb886b5bc30",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "629c46c1_d06d48c7",
         "filename": "docker/docker-env-config.sh",
         "patchSetId": 12
