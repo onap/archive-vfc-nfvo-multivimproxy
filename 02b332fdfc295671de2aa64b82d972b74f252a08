@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26a2a815_fb28a40c",
+        "filename": "docker/docker-env-config.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:03:01Z",
+      "side": 1,
+      "message": "trailing",
+      "revId": "02b332fdfc295671de2aa64b82d972b74f252a08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57bc95c1_f6d1fe09",
+        "filename": "docker/docker-env-config.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-03-05T09:03:01Z",
+      "side": 1,
+      "message": "trailing",
+      "revId": "02b332fdfc295671de2aa64b82d972b74f252a08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
