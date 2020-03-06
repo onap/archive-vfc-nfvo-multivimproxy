@@ -1,0 +1,10 @@
+distribution_type: 'container'
+container_release_tag: '1.3.1'
+project: 'vfc-nfvo-driver-ems'
+container_pull_registry: nexus3.onap.org:10003
+container_push_registry: nexus3.onap.org:10002
+log_dir: 'vfc-nfvo-multivimproxy-master-docker-java-version-shell-daily/725/'
+ref: 'adfc4f436c641c9c1d3dc401fd96108952433ef9'
+containers:
+    - name: 'vfc/multivimproxy'
+      version: '1.3.1-STAGING-20200305T155416'
